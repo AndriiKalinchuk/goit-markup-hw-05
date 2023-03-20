@@ -573,7 +573,7 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   display: flex;
 
   width: 408px;
@@ -583,6 +583,18 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  cursor: pointer;
+  opacity: 1;
+
+  transition: transform var(--transition-time) var(--cubic);
+}
+
+.backdrop.is-hidden > .modal {
+  transform: translate(-50%, -50%) scale(0.7);
+}
+
+.modal > .backdrop.is-hidden {
+  transform: opacity var(--transition-time) var(--cubic);
 }
 
 .modal-button {
@@ -590,18 +602,13 @@ img {
   top: 24px;
   right: 24px;
   cursor: pointer;
-  background: #e7e9fc;
+  background: var(--accent-color);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .close-icon {
-  display: inline-block;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-
-/*@keyframes changeScaleOpacity {
-  scale
-  opacity
-}*/
